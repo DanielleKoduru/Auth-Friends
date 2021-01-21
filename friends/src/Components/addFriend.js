@@ -28,61 +28,60 @@ class AddFriend extends React.Component {
         e.preventDefault()
         axiosWithAuth().post('/api/friends', this.state.friend)
             .then(
-                res => {
-                    console.log(res)
-                }
-
-            )
+                res => {console.log(res)})
             .catch(err => {
-                console.log(err)
-            }
-
-            )
+                console.log(err)})
     }
 
 
     render() {
         return (
-            <form onSubmit={this.state.friend}>
+            <form onSubmit={this.addFriend}>
                 <h2>Add A New Friend!</h2>
+            <div className="addFriend">
 
-                <label>
-                    Name: &nbsp;
-                <input
-                        type="text"
-                        placeholder="..."
-                        maxlength="25"
-                        name="name"
-                        value={this.state.friend.name}
-                        onChange={this.handleChange}
-                    />
-                </label>
+                <div className="name-field">
+                    <label>
+                        Name: &nbsp;
+                    <input
+                            type="text"
+                            maxlength="25"
+                            name="name"
+                            value={this.state.friend.name}
+                            onChange={this.handleChange}
+                        />
+                    </label>
+                </div>
 
-                <label>
-                    Age: &nbsp;
-                <input
-                        type="text"
-                        placeholder="..."
-                        maxlength="3"
-                        name="age"
-                        value={this.state.friend.age}
-                        onChange={this.handleChange}
-                    />
-                </label>
+                <div className="age-field">
+                    <label>
+                        Age: &nbsp;
+                    <input
+                            type="text"
+                            maxlength="3"
+                            name="age"
+                            value={this.state.friend.age}
+                            onChange={this.handleChange}
+                        />
+                    </label>
+                </div>
 
-                <label>
-                    Email: &nbsp;
-                <input
-                        type="text"
-                        placeholder="..."
-                        maxlength="25"
-                        name="email"
-                        value={this.state.friend.email}
-                        onChange={this.handleChange}
-                    />
-                </label>
+                <div className="email-field">
+                    <label>
+                        Email: &nbsp;
+                    <input
+                            type="text"
+                            maxlength="25"
+                            name="email"
+                            value={this.state.friend.email}
+                            onChange={this.handleChange}
+                        />
+                    </label>
+                </div>
 
-                <button>Submit</button>
+                </div>
+                
+                <button>Add Friend</button>
             </form>
         );
     }
